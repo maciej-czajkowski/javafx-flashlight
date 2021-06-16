@@ -116,13 +116,13 @@ public class Flashlight extends Application {
         });
 
         // flashlight button click handler
-//        EventHandler<MouseEvent> buttonEventHandler = new ButtonEventHandler(myGroup, button, pointLight);
-//        button.setOnMouseReleased(buttonEventHandler);
         EventHandler<MouseEvent> buttonEventHandler = new ButtonEventHandler(myGroup, meshGroup.getChildren().get(0), pointLight,new BatteryEventHandler());
         meshGroup.getChildren().get(0).setOnMouseReleased(buttonEventHandler);
 
+        // flashlight battery click handler
         EventHandler<MouseEvent> batteryEventHandler = new BatteryEventHandler(meshGroup.getChildren().get(1),
                 meshGroup.getChildren().get(2), meshGroup.getChildren().get(7), (ButtonEventHandler) buttonEventHandler);
+        //setting reference to batteryEventHandler
         meshGroup.getChildren().get(2).setOnMouseReleased(batteryEventHandler);
         ((ButtonEventHandler) buttonEventHandler).setBatteryHandler((BatteryEventHandler)batteryEventHandler);
 
