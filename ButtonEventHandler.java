@@ -16,9 +16,9 @@ public class ButtonEventHandler implements EventHandler<MouseEvent> {
         BLINK,
     }
 
-    final static double animationDurationMs = 500;
-    final static double translationLength = 0.25;
-    final static double blinkDurationMs = 100;
+    private final static double ANIMATION_DURATION_MS = 500;
+    private final static double TRANSLATION_LENGTH = 0.25;
+    private final static double BLINK_DURATION_MS = 100;
     private BatteryEventHandler batteryHandler;
 
     private Group group;
@@ -26,7 +26,7 @@ public class ButtonEventHandler implements EventHandler<MouseEvent> {
     private LightBase pointLight;
     private LightSequence lightSequence = LightSequence.ON;
     private Timeline blink = new Timeline(
-            new KeyFrame(Duration.millis(blinkDurationMs),
+            new KeyFrame(Duration.millis(BLINK_DURATION_MS),
                     new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent event) {
@@ -88,9 +88,9 @@ public class ButtonEventHandler implements EventHandler<MouseEvent> {
 
     private void animateClick() {
         TranslateTransition tt = new TranslateTransition();
-        tt.setFromY(translationLength);
+        tt.setFromY(TRANSLATION_LENGTH);
         tt.setToY(0);
-        tt.setDuration(Duration.millis(animationDurationMs));
+        tt.setDuration(Duration.millis(ANIMATION_DURATION_MS));
         tt.setNode(button);
         tt.setAutoReverse(false);
         tt.play();

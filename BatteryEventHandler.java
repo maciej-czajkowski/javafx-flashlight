@@ -7,12 +7,12 @@ import javafx.util.Duration;
 
 
 public class BatteryEventHandler implements EventHandler<MouseEvent> {
+    private final static double TRANSLATION_LENGTH = 8;
+    private final static double ANIMATION_DURATION_MS = 2500;
     private boolean batteryIn;
     private Node inCap;
     private Node cap;
     private Node battery;
-    final static double translationLength = 8;
-    final static double animationDurationMs = 2500;
     private ButtonEventHandler buttonHandler;
 
     public BatteryEventHandler() {
@@ -47,23 +47,23 @@ public class BatteryEventHandler implements EventHandler<MouseEvent> {
     private void animateOut() {
         TranslateTransition tCap = new TranslateTransition();
         tCap.setFromX(0);
-        tCap.setToX(translationLength);
-        tCap.setDuration(Duration.millis(animationDurationMs));
+        tCap.setToX(TRANSLATION_LENGTH);
+        tCap.setDuration(Duration.millis(ANIMATION_DURATION_MS));
         tCap.setNode(cap);
         tCap.setAutoReverse(false);
 
         TranslateTransition tInCap = new TranslateTransition();
         tInCap.setFromX(0);
-        tInCap.setToX(translationLength);
-        tInCap.setDuration(Duration.millis(animationDurationMs));
+        tInCap.setToX(TRANSLATION_LENGTH);
+        tInCap.setDuration(Duration.millis(ANIMATION_DURATION_MS));
         tInCap.setNode(inCap);
         tInCap.setAutoReverse(false);
 
         TranslateTransition tBattery = new TranslateTransition();
         tBattery.setFromX(0);
-        tBattery.setToX(translationLength);
-        tBattery.setDuration(Duration.millis(animationDurationMs));
-        tBattery.setDelay(Duration.millis(animationDurationMs));
+        tBattery.setToX(TRANSLATION_LENGTH);
+        tBattery.setDuration(Duration.millis(ANIMATION_DURATION_MS));
+        tBattery.setDelay(Duration.millis(ANIMATION_DURATION_MS));
         tBattery.setNode(battery);
         tBattery.setAutoReverse(false);
 
@@ -73,25 +73,25 @@ public class BatteryEventHandler implements EventHandler<MouseEvent> {
 
     private void animateIn() {
         TranslateTransition tCap = new TranslateTransition();
-        tCap.setFromX(translationLength);
+        tCap.setFromX(TRANSLATION_LENGTH);
         tCap.setToX(0);
-        tCap.setDuration(Duration.millis(animationDurationMs));
-        tCap.setDelay(Duration.millis(animationDurationMs));
+        tCap.setDuration(Duration.millis(ANIMATION_DURATION_MS));
+        tCap.setDelay(Duration.millis(ANIMATION_DURATION_MS));
         tCap.setNode(cap);
         tCap.setAutoReverse(false);
 
         TranslateTransition tInCap = new TranslateTransition();
-        tInCap.setFromX(translationLength);
+        tInCap.setFromX(TRANSLATION_LENGTH);
         tInCap.setToX(0);
-        tInCap.setDuration(Duration.millis(animationDurationMs));
-        tInCap.setDelay(Duration.millis(animationDurationMs));
+        tInCap.setDuration(Duration.millis(ANIMATION_DURATION_MS));
+        tInCap.setDelay(Duration.millis(ANIMATION_DURATION_MS));
         tInCap.setNode(inCap);
         tInCap.setAutoReverse(false);
 
         TranslateTransition tBattery = new TranslateTransition();
-        tBattery.setFromX(translationLength);
+        tBattery.setFromX(TRANSLATION_LENGTH);
         tBattery.setToX(0);
-        tBattery.setDuration(Duration.millis(animationDurationMs));
+        tBattery.setDuration(Duration.millis(ANIMATION_DURATION_MS));
         tBattery.setNode(battery);
         tBattery.setAutoReverse(false);
 
